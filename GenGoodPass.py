@@ -7,16 +7,6 @@ charset_capitals = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
 charset_numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 charset_special = ['!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '-', '?']
 
-# argparser = argparse.ArgumentParser(description='Generates secure passwords')
-# argparser.add_argument('--count', '-c', type=int,
-#                    help='The number of passwords to generate', default=1)
-# argparser.add_argument('--dict', '-d', type=str, required=True, help='The dictionary file to use')
-
-# prog_args = argparser.parse_args()
-
-
-
-
 MANGLE_CHANCE = (1/10)
 PREPEND_CHANCE = (1/20)
 APPEND_CHANCE = (1/5)
@@ -159,6 +149,13 @@ def generatePassword(wordDict, wordDictCount):
 
 
 def main():
+	argparser = argparse.ArgumentParser(description='Generates secure passwords')
+	argparser.add_argument('--count', '-c', type=int,
+	                   help='The number of passwords to generate', default=1)
+	argparser.add_argument('--dict', '-d', type=str, required=True, help='The dictionary file to use')
+
+	prog_args = argparser.parse_args()
+
 	wordDict, wordDictCount = readDictionary(prog_args.dict)
 	if wordDict == None or wordDictCount == None:
 		return 1
