@@ -10,6 +10,7 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(500, activation='sigmoid'),
+    tf.keras.layers.Dropout(.10),
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(5, activation='softmax')

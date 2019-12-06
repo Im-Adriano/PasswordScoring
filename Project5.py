@@ -12,6 +12,7 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(500, activation='sigmoid'),
+    tf.keras.layers.Dropout(.10),
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(500, activation='sigmoid'),
     tf.keras.layers.Dense(5, activation='softmax')
@@ -31,7 +32,7 @@ checkpoint = tf.keras.callbacks.ModelCheckpoint(filepath, monitor='loss', verbos
 log_dir="logs\\fit\\" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=0)
 
-model.fit_generator(passGen, steps_per_epoch=500, epochs=20, callbacks=[tensorboard_callback, checkpoint])
+model.fit_generator(passGen, steps_per_epoch=5000, epochs=20, callbacks=[tensorboard_callback, checkpoint])
 model.evaluate_generator(passGen, steps=1000, verbose = 2)
 
 
