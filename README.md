@@ -11,7 +11,7 @@
 ## Trained Models
 * model_weights_1.hdf5
   * Trained without a dropout layer on 10 million passwords
-  * Remove dropout layer from model in CheckPassword.py before running.
+  * Remove dropout layer from model in CheckPassword.py and rename to model_weights.hdf5 before running.
 * model_weights_2.hdf5
   * Trained on 100 million password with dropout layer.
   * Just rename to model_weights.hdf5 to use with current CheckPassword.py
